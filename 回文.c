@@ -4,7 +4,7 @@ main()
 {
 	printf("作者邮箱：yubowen@mail.sdu.edu.cn\n");
 	printf("本程序可判断一个数是否是回文字符串。\n");
-	char pig[10];
+	char pig[100];
 	int cat;
 	float dog;
 	dog = 0;
