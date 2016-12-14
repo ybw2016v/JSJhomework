@@ -4,7 +4,6 @@ using namespace std;
 int main() {
   cout << "作者邮箱：ybw2016v@gmail.com\n";
   int cat, dog, pig;
-
   char egg[100];
   char fly[20];
   fly[0] = 'y';
@@ -34,6 +33,5 @@ int main() {
   cout << "程序已结束，生活愉快！\n";
   cout << "请访问github.com/ybw2016v";
   cout << "获取更多信息。";
-
   return 0;
 }
