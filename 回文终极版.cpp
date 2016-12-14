@@ -2,7 +2,7 @@
 #include<string>
 using namespace std;
 int main() {
-  cout << "作者邮箱：yubowen@mail.sdu.edu.cn\n";
+  cout << "作者邮箱：ybw2016v@gmail.com\n";
   int cat, dog, pig;
 
   char egg[100];
@@ -31,5 +31,9 @@ int main() {
     cout << "是否继续运行？（y/n)" << endl;
     cin >> fly;
   }
+  cout << "程序已结束，生活愉快！\n";
+  cout << "请访问github.com/ybw2016v";
+  cout << "获取更多信息。";
+
   return 0;
 }
