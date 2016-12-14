@@ -14,7 +14,8 @@ int main() {
     cin >> egg;
     cat = strlen(egg);
     dog = 0;
-    while (dog < cat) {
+    while (dog < cat)
+       {
       // cout<<egg[dog]<<egg[cat-dog-1]<<endl;
       if (egg[dog] == egg[cat - dog - 1]);
       else {
@@ -22,7 +23,7 @@ int main() {
         break;
       }
       dog++;
-    }
+      }
     if (pig == 1)
       cout << "不是回文字符串。" << endl;
     else
