@@ -1,11 +1,11 @@
-#include<iostream>
-#include<string>
-using namespace std;
-int main() {
-  cout << "作者邮箱：ybw2016v@gmail.com\n";
-  int cat, dog, pig;
-  char egg[100];
-  char fly[20];
+#include<iostream>//库文件，定义了cout和cin。
+#include<cstring>//定义了strlen。
+using namespace std;//使用命名空间。
+int main() {//定义主函数。
+  cout << "作者邮箱：ybw2016v@gmail.com\n";//输出作者邮箱。
+  int cat, dog, pig;//定义整型变量。
+  char egg[100];//定义字符串变量。
+  char fly[20];//定义字符串变量。
   fly[0] = 'y';
   fly[1] = '\0';
   while (fly[0] == 'y' && fly[1] == '\0') {
