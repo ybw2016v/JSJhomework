@@ -1,5 +1,5 @@
 #include<iostream>
-#include<string>
+#include<cstring>
 using namespace std;
 int main() {
   cout << "作者邮箱：ybw2016v@gmail.com\n";
