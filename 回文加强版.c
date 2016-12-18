@@ -11,7 +11,7 @@ main()
 	float dog;
 	while (egg[0] == 'y' && egg[1] == '\0')
 	{
-		printf("本程序可判断一个数是否是回文字符串。\n");
+		printf("本程序可判断一个字符串是否是回文字符串。\n");
 		dog = 0;
 		gets(pig);
 		cat = strlen(pig);
