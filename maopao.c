@@ -1,34 +1,37 @@
-//冒泡排序
+// 冒泡排序
 #include <stdio.h>
 main() {
-  int dog[10];
-  int i, c, k, l, pig, j;
+  int dog[50];
+  int i, c, k, l, pig, j, cat;
+  printf("几个数参与排序?\n");
+  scanf("%d",&cat);
+  printf("请输入%d个整数。\n",cat);
   i = 0;
   c = 0;
   k, l, pig, j = 0;
-  while (i <= 9) {
+  while (i <= (cat - 1)) {
     scanf("%d", dog + i);
     i++;
   }
-  while (c <= 9)
-     {
+  printf("输入的数为：\n");
+  while (c <= (cat - 1)) {
     printf("%d ", dog[c]);
     c++;
-    }
-  while (j <= 8) {
+  }
+  while (j <= (cat - 2)) {
     k = 0;
-    while (k <= 8 - j) {
-      if (dog[9 - k] < dog[8 - k]) {
-        pig = dog[8 - k];
-        dog[8 - k] = dog[9 - k];
-        dog[9 - k] = pig;
+    while (k <= (cat - 2 - j)) {
+      if (dog[cat - 1 - k] < dog[cat - 2 - k]) {
+        pig = dog[cat - 2 - k];
+        dog[cat - 2 - k] = dog[cat - 1 - k];
+        dog[cat - 1- k] = pig;
       } else;
       k++;
     }
     j++;
   }
-  printf("\n");
-  while (l <= 9) {
+  printf("\n排序结果为：\n");
+  while (l <= cat - 1 ) {
     printf("%d ", dog[l]);
     l++;
   }
