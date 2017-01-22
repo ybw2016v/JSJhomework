@@ -2,6 +2,7 @@
 #include<string.h>
 main()
 {
+	char * k;
 	printf("作者邮箱：yubowen@mail.sdu.edu.cn\n");
 	char pig[100];
 	char egg[20];
@@ -15,15 +16,17 @@ main()
 		dog = 0;
 		gets(pig);
 		cat = strlen(pig);
+		k=pig;
 		int i;
 		for (i = 0; i < cat; i++)
 		{
-			printf("%c,%c\n", pig[i], pig[cat - i - 1]);
+			printf("%p,%p\n", &pig[i], &pig[cat - i - 1]);
 			if (pig[i] != pig[cat - i - 1])
 			{
 				dog = 1;
 				break;
-			}
+			}k++;
+			printf("%c\n",*k);
 		}
 		printf("%f", dog);
 		if (dog == 0)
