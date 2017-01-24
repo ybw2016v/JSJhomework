@@ -1,4 +1,13 @@
 #include <stdio.h>
+int cup(int p)
+ {
+  if (p > 50)
+   {
+    printf("too long\n");
+    p = 50;
+  } else;
+  return p;
+}
 int seadog(int hidog[], int n) {
   int i, j, k, pig, cat;
   i = 0;
@@ -34,6 +43,7 @@ main() {
   int p;
   printf("几个数参与排序?\n");
   scanf("%d", &cat);
+  cat=cup(cat);
   printf("请输入%d个整数。\n", cat);
   i = 0;
   c = 0;
