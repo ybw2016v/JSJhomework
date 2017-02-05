@@ -1,6 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
-int place [20] [20];
+#include<time.h>
+#include <unistd.h>
+#define H 20
+#define L 40
+int place [H] [L];
 int a,b,c;
 void start();
 void player();
@@ -16,8 +20,11 @@ main()
 	place[10][9]=1;
 	place[10][7]=1;
 	place[11][7]=1;
-	place[11][8]=1;
+	place[8][8]=1;
 	place[11][9]=1;
+	place[5][9]=1;
+	place[6][9]=1;
+	place[7][9]=1;
 	player();
 	next();
 	player();
@@ -27,8 +34,10 @@ main()
 	player();
 	next();
 	player();
-	while (z<20)
+	while (z<300)
 	{
+		
+		usleep(500000);
 		next();
 		player();
 		z++;
@@ -42,11 +51,11 @@ void start()
 	b=0;
 	c=0;
 	puts("!");
-	while (a<20)
+	while (a<H)
 	{
 		b=0;
 		puts(";");
-		while (b!=20)
+		while (b!=L)
 		{printf("%d",b);
 		place[a][b]=0;
 		b++;
@@ -63,20 +72,20 @@ void player()
 	a=0;
 	b=0;
 	c=0;
-	while (a!=20)
+	while (a!=H)
 	{
 		b=0;
-		while (b<20)
+		while (b<L)
 		{
 			if (place[a][b]==0)
 			{
-				printf("  ");
+				printf(" ");
 			}
 			else
 			{
-				printf("@ ");
+				printf("@");
 			}
-			if (b==19)
+			if (b==(L-1))
 			printf("\n");
 			else
 			;
@@ -88,15 +97,15 @@ void player()
 void next()
 {
 	int n;
-	int np[20] [20];
+	int np[H] [L];
 	int i,j,k;
 	n=0;
 	i=0;
 	j=0;
-	while (i<20)
+	while (i<H)
 	{
 		j=0;
-		while (j<20)
+		while (j<L)
 		{
 			n=place[i-1][j-1]+
 			place[i-1][j]+
@@ -128,10 +137,10 @@ place[i+1][j+1];
 	}
 	i=0;
 	j=0;
-	while (i<20)
+	while (i<H)
 	{
 		j=0;
-		while (j<20)
+		while (j<L)
 		{
 			place[i][j]=np[i][j];
 			
@@ -140,6 +149,3 @@ place[i+1][j+1];
 		i++;
 	}
 }
-			
-		
-		
