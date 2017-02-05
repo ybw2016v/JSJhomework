@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<time.h>
 #include <unistd.h>
-#define H 20
+#define H 30
 #define L 40
 int place [H] [L];
 int a,b,c;
@@ -19,7 +19,7 @@ main()
 	place[10][8]=1;
 	place[10][9]=1;
 	place[10][7]=1;
-	place[11][7]=1;
+	place[12][7]=0;
 	place[8][8]=1;
 	place[11][9]=1;
 	place[5][9]=1;
@@ -68,7 +68,7 @@ void start()
 void player()
 {
 	
-	
+	printf("********************");
 	a=0;
 	b=0;
 	c=0;
@@ -86,7 +86,7 @@ void player()
 				printf("@");
 			}
 			if (b==(L-1))
-			printf("\n");
+			printf("*\n");
 			else
 			;
 			b++;
