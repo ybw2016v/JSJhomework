@@ -3,9 +3,12 @@
 #include<string.h>
 #define C 40
 #define K 20
-
-
-int c,f;
+#include <unistd.h>
+#include <conio.h>
+#include <time.h>
+int nx,ny;
+int xy=1;
+int yx=0;
 int chang;
 int map [K] [C];
 struct shi
@@ -20,6 +23,30 @@ struct she
 	struct she* next;
 };
 struct she * head ;
+void show();
+void start();
+void mapnew();
+void move();
+void aj();
+main()
+{
+    
+	start();
+	
+	show();
+	
+	mapnew();
+puts("j");
+	show();
+	for(int i=0;i<100;i++)
+	{
+		aj();
+	move();
+	
+	mapnew();
+	show();
+	}
+}
 void show()
 {
 	system("clear");
@@ -41,13 +68,13 @@ void show()
 			d=map[a][b];
 			if (d==0)
 			{
-				printf("@");
+				printf(" ");
 			}
 			else
 			{
 				if (d==1)
 				{
-					printf("&");
+					printf("#");
 				}
 				else
 				{
@@ -57,7 +84,7 @@ void show()
 					}
 					else
 					{
-						printf("#");
+						printf("@");
 					}
 				}
 			}
@@ -69,18 +96,7 @@ void show()
 		printf("$");
 	}
 	printf("\n");
-}
-void start();
-void mapnew();
-main()
-{
-    c=1;
-    f=1;
-	start();
-	show();
-	mapnew();
-puts("j");
-	show();
+	usleep(500000);
 }
 void start()
 {
@@ -107,6 +123,15 @@ void start()
 }
 void mapnew()
 {
+	int abc,bbc;
+    for (abc=0;abc<K;abc++)
+	{
+
+		for (bbc=0;bbc<C;bbc++)
+		{
+			map[abc][bbc]=0;
+		}
+	}
 	int a,b,c,d;
 	int e;
 	struct she * m;
@@ -143,18 +168,87 @@ void mapnew()
 }
 void move()
 {
-    struct she * h,m;
+    struct she * h;
+    struct she * m;
+    struct she * n;
     int o;
     h=head;
     head=(struct she*)malloc(sizeof(struct she));
-    //swich c:
-   // case 1
-    {
-        
-        (*head).x=(*h).x+1;
-        (*head).y=(*h).y;
+    
+   {
+       // printf("%d,%d",nx,ny);
+        (*head).x=(*h).x+nx;
+        (*head).y=(*h).y+ny;
         (*head).next=h;
 
     }
-    for()
+    m=head;
+   for (o=0;o==0;)
+    {
+    	n=(*m).next;
+    	
+    	if ((*n).next==NULL)
+    	{
+    		
+    		(*m).next=NULL;
+    		o=1;
+    		free(n);
+    	}
+    	else
+    	{
+    		m=n;
+    	}
+    	}
+}
+void aj()
+{
+	int jnx,jny;
+	int hug;
+	char jian;
+	
+	{
+		jian=getchar();
+		getchar();
+	}
+	switch (jian)
+	{
+	case 's':
+	{
+		jnx=0;
+		jny=1;
+		xy=1;
+		break;
+	}
+	case 'a':
+	{
+		jnx=-1;
+		jny=0;
+		xy=2;
+		break;
+	}
+	case 'w':
+	{
+		jnx=0;
+		jny=-1;
+		xy=-1;
+		break;
+	}
+	case 'd':
+	{
+		jnx=1;
+		jny=0;
+		xy=-2;
+		break;
+	}
+	
+	}
+	if ((xy+yx)==0)
+	;
+	else
+	{
+		nx=jnx;
+		ny=jny;
+	}
+	yx=xy;
+	
 }
