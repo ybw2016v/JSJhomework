@@ -6,7 +6,8 @@
 #include <unistd.h>
 #include <conio.h>
 #include <time.h>
-int nx,ny;
+int nx=0;
+int ny=1;
 int xy=1;
 int yx=0;
 int chang;
@@ -34,11 +35,10 @@ main()
 	start();
 	
 	show();
-	
 	mapnew();
 puts("j");
 	show();
-	for(int i=0;i<100;i++)
+	for(int i=0;i<100;i--)
 	{
 		aj();
 	move();
@@ -205,10 +205,12 @@ void aj()
 	int jnx,jny;
 	int hug;
 	char jian;
-	
+	if (kbhit()!=0)
+	{
+	//while(kbhit()!=0)
 	{
 		jian=getchar();
-		getchar();
+		
 	}
 	switch (jian)
 	{
@@ -240,7 +242,12 @@ void aj()
 		xy=-2;
 		break;
 	}
-	
+	case '\n':
+	{
+		jnx=nx;
+		jny=ny;
+		xy=xy;
+	}
 	}
 	if ((xy+yx)==0)
 	;
@@ -250,5 +257,5 @@ void aj()
 		ny=jny;
 	}
 	yx=xy;
-	
+}
 }
