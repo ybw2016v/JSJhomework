@@ -29,6 +29,7 @@ void start();
 void mapnew();
 void move();
 void aj();
+void pd();
 main()
 {
     
@@ -163,6 +164,11 @@ void mapnew()
 }
 void move()
 {
+	int pa,pb;
+	int num;
+	pa=0;
+	pb=0;
+	num=0;
     struct she * h;
     struct she * m;
     struct she * n;
@@ -171,10 +177,20 @@ void move()
     head=(struct she*)malloc(sizeof(struct she));
    {
        // printf("%d,%d",nx,ny);
+      
         (*head).x=(*h).x+nx;
         (*head).y=(*h).y+ny;
         (*head).next=h;
     }
+    pa=(*head).x;
+    pb=(*head).y;
+    num=map[pb][pa];
+    if (num==3)
+    {
+    	pd();
+    }
+    else
+    {
     m=head;
    for (o=0;o==0;)
     {
@@ -190,6 +206,7 @@ void move()
     		m=n;
     	}
     	}
+}
 }
 void aj()
 {
@@ -233,6 +250,10 @@ void aj()
 		break;
 	}
 	case '\n':
+	case 'q':
+	case 'e':
+	case 'f':
+	case 'x':
 	{
 		jnx=nx;
 		jny=ny;
@@ -248,4 +269,19 @@ void aj()
 	}
 	yx=xy;
 }
+}
+void pd()
+{
+	int b,c;
+	int ia,ib;
+	double da,db;
+	srand(time(0));
+	c=rand()%C;
+	b=rand()%K;
+	da=(c/1);
+	db=(b/10);
+	ia=da*C;
+	ib=db*K;
+	food.x=c;
+	food.y=b;
 }
