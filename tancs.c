@@ -117,7 +117,7 @@ void start()
 	(*head).y=2;
 	(*head).next=(struct she*)
 	malloc(sizeof(struct she));
-        (*((*head).next)).next=NULL;
+     (*((*head).next)).next=NULL;
         (*((*head).next)).x=2;
         (*((*head).next)).y=3;
 }
@@ -126,7 +126,6 @@ void mapnew()
 	int abc,bbc;
     for (abc=0;abc<K;abc++)
 	{
-
 		for (bbc=0;bbc<C;bbc++)
 		{
 			map[abc][bbc]=0;
@@ -142,7 +141,6 @@ void mapnew()
 	m=head;
 	while (e==0)
     {
-
             int pig,dog;
             pig=0;
             dog=0;
@@ -151,7 +149,6 @@ void mapnew()
             map[dog][pig]=1;
         if((*m).next==NULL)
         {
-
            e=1;
         }
         else
@@ -159,12 +156,10 @@ void mapnew()
             m=(*m).next;
         }
     }
-
     map[a][b]=3;
 	c=(*head).y;
 	d=(*head).x;
 	map[c][d]=2;
-
 }
 void move()
 {
@@ -174,22 +169,18 @@ void move()
     int o;
     h=head;
     head=(struct she*)malloc(sizeof(struct she));
-    
    {
        // printf("%d,%d",nx,ny);
         (*head).x=(*h).x+nx;
         (*head).y=(*h).y+ny;
         (*head).next=h;
-
     }
     m=head;
    for (o=0;o==0;)
     {
     	n=(*m).next;
-    	
     	if ((*n).next==NULL)
     	{
-    		
     		(*m).next=NULL;
     		o=1;
     		free(n);
@@ -210,7 +201,6 @@ void aj()
 	//while(kbhit()!=0)
 	{
 		jian=getchar();
-		
 	}
 	switch (jian)
 	{
