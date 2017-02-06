@@ -1,11 +1,14 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include<string.h>
 #define C 40
 #define K 20
+
+
+int c,f;
 int chang;
 int map [K] [C];
-struct shi 
+struct shi
 {
 	int x;
 	int y;
@@ -46,7 +49,7 @@ void show()
 				{
 					printf("&");
 				}
-				else 
+				else
 				{
 					if (d==3)
 					{
@@ -71,10 +74,12 @@ void start();
 void mapnew();
 main()
 {
+    c=1;
+    f=1;
 	start();
 	show();
 	mapnew();
-	
+puts("j");
 	show();
 }
 void start()
@@ -82,7 +87,7 @@ void start()
 	int a,b,c;
     for (a=0;a<K;a++)
 	{
-		
+
 		for (b=0;b<C;b++)
 		{
 			map[a][b]=0;
@@ -92,18 +97,64 @@ void start()
 	food.y=(K/2);
 	head=(struct she*)
 	malloc(sizeof(struct she));
-	(*head).x=1;
-	(*head).y=1;
-	(*head).next=NULL;
+	(*head).x=2;
+	(*head).y=2;
+	(*head).next=(struct she*)
+	malloc(sizeof(struct she));
+        (*((*head).next)).next=NULL;
+        (*((*head).next)).x=2;
+        (*((*head).next)).y=3;
 }
 void mapnew()
 {
 	int a,b,c,d;
+	int e;
+	struct she * m;
+	m=NULL;
+	e=0;
 	a=food.y;
 	b=food.x;
-	map[a][b]=3;
+	m=head;
+	while (e==0)
+    {
+
+            int pig,dog;
+            pig=0;
+            dog=0;
+            pig=(*m).x;
+            dog=(*m).y;
+            map[dog][pig]=1;
+        if((*m).next==NULL)
+        {
+
+           e=1;
+        }
+        else
+        {
+            m=(*m).next;
+        }
+    }
+
+    map[a][b]=3;
 	c=(*head).y;
 	d=(*head).x;
 	map[c][d]=2;
-	
+
+}
+void move()
+{
+    struct she * h,m;
+    int o;
+    h=head;
+    head=(struct she*)malloc(sizeof(struct she));
+    //swich c:
+   // case 1
+    {
+        
+        (*head).x=(*h).x+1;
+        (*head).y=(*h).y;
+        (*head).next=h;
+
+    }
+    for()
 }
