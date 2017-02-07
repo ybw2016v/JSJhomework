@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 int cup(int p)
  {
   if (p > 50)
@@ -61,4 +62,5 @@ main() {
     p = seadog(&dog[0], cat);
     sdog(&dog[0], cat);
   }
+  
 }
