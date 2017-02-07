@@ -30,20 +30,18 @@ void mapnew();
 void move();
 void aj();
 void pd();
+char sr(char v);
 main()
 {
-    
 	start();
-	
 	show();
 	mapnew();
 puts("j");
 	show();
 	for(int i=0;i<100;i)
 	{
-		aj();
+	aj();
 	move();
-	
 	mapnew();
 	show();
 	}
@@ -55,7 +53,7 @@ void show()
 	a=0;
 	b=0;
 	c=0;
-	puts("NULL");
+	puts("贪吃蛇");
 	for (c=0;c<C+2;c++)
 	{
 		printf("$");
@@ -97,7 +95,7 @@ void show()
 		printf("$");
 	}
 	printf("\n");
-	usleep(500000);
+	usleep(100000);
 }
 void start()
 {
@@ -177,7 +175,6 @@ void move()
     head=(struct she*)malloc(sizeof(struct she));
    {
        // printf("%d,%d",nx,ny);
-      
         (*head).x=(*h).x+nx;
         (*head).y=(*h).y+ny;
         (*head).next=h;
@@ -218,7 +215,9 @@ void aj()
 	//while(kbhit()!=0)
 	{
 		jian=getchar();
+		jian=sr(jian);
 	}
+	jian=sr(jian);
 	switch (jian)
 	{
 	case 's':
@@ -273,15 +272,33 @@ void aj()
 void pd()
 {
 	int b,c;
-	int ia,ib;
-	double da,db;
 	srand(time(0));
 	c=rand()%C;
 	b=rand()%K;
-	da=(c/1);
-	db=(b/10);
-	ia=da*C;
-	ib=db*K;
 	food.x=c;
 	food.y=b;
+}
+char sr(char v)
+{
+	int j=0;
+	switch (v)
+	{
+		case 'w':
+		case 'a':
+		case 'd':
+		case 's':
+		case '\n':
+		case 'p':
+		{
+			j=1;
+			break;
+		}
+	}
+	if (j==0)
+	{
+		v='e';
+	}
+	else
+	;
+	return v;
 }
