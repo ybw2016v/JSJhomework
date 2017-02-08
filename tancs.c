@@ -10,7 +10,7 @@ int nx=0;
 int ny=1;
 int xy=1;
 int yx=0;
-int chang;
+int chang=0;
 int map [K] [C];
 struct shi
 {
@@ -55,6 +55,7 @@ void show()
 	a=0;
 	b=0;
 	c=0;
+	printf("分数：%d       ",chang);
 	puts("贪吃蛇");
 	for (c=0;c<C+2;c++)
 	{
@@ -316,6 +317,7 @@ void pd()
 	b=rand()%K;
 	food.x=c;
 	food.y=b;
+	chang++;
 }
 char sr(char v)
 {
