@@ -30,6 +30,8 @@ void mapnew();
 void move();
 void aj();
 void pd();
+void welcome();
+void end();
 char sr(char v);
 main()
 {
@@ -95,7 +97,7 @@ void show()
 		printf("$");
 	}
 	printf("\n");
-	usleep(100000);
+	usleep(500000);
 }
 void start()
 {
@@ -181,12 +183,48 @@ void move()
     }
     pa=(*head).x;
     pb=(*head).y;
+   // printf("%d\n",pb);
+    if ( pb==-1)
+    {
+    	pb=(K-1);
+    	(*head).y=pb;
+    }
+    else
+    ;
+    if (pb==K)
+    {
+    	pb=0;
+    	(*head).y=pb;
+    }
+    else
+    ;
+    if (pa==-1)
+    {
+    	pa=C-1;
+    	(*head).x=pa;
+    }
+    else
+    ;
+     if (pa==C)
+    {
+    	pa=0;
+    	(*head).x=pa;
+    }
+    else
+    ;
+    //printf("%d\n",pb);
     num=map[pb][pa];
     if (num==3)
     {
     	pd();
     }
     else
+    {
+    	if ( num==2)
+    	{
+    		;
+    	}
+    	else
     {
     m=head;
    for (o=0;o==0;)
@@ -204,6 +242,7 @@ void move()
     	}
     	}
 }
+    }
 }
 void aj()
 {
