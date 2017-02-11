@@ -1,14 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<string.h>
-#define C 40
-#define K 20
+#define C 20
+#define K 10
 #include <unistd.h>
 #include <conio.h>
 #include <time.h>
+int pai[10];
+int fen=0;
+int endgame = 0;
+int newgame = 0;
 int rank = 5;
 int nx = 0;
-int ny = 1;
+int ny = -1;
 int xy = 1;
 int yx = 0;
 int chang = 0;
@@ -44,11 +48,38 @@ main ()
   show ();
   for (int i = 0; i < 100; i)
     {
+      if (newgame == 1)
+	{
+		fen=0;
+	  endgame = 0;
+	  newgame = 0;
+	  rank = 5;
+	  nx = 0;
+	  ny = -1;
+	  xy = 1;
+	  yx = 0;
+	  chang = 0;
+	  welcome ();
+	  start ();
+	  mapnew ();
+	  show ();
+	  newgame = 0;
+	}
+      else;
       aj ();
       move ();
+      if (endgame == 1)
+	{
+	  endgame = 0;
+	  break;
+	}
+      else;
       mapnew ();
       show ();
     }
+wandanl:printf ("");
+  system ("clear");
+  puts ("Goodbye");
 }
 
 void show ()
@@ -221,9 +252,9 @@ void move ()
     }
   else
     {
-      if (num == 2)
+      if (num == 1)
 	{
-	  ;
+	  end ();
 	}
       else
 	{
@@ -361,4 +392,35 @@ void welcome ()
   puts ("请选择等级(1-9)");
   scanf ("%d", &rank);
   getchar ();
+}
+
+void end ()
+{
+  char ans[10];
+  int flag = 0;
+   fen=(10 - rank) * chang;
+  puts ("game over");
+  printf ("最终分数：%d\n", fen);
+  puts ("是否重新开始？(y/n)");
+  while (flag == 0)
+    {
+      gets (ans);
+      if (ans[0] == 'y' || ans[0] == 'n')
+	{
+	  flag = 1;
+	}
+      else
+	{
+	  puts ("请重新输入");
+	  gets (ans);
+	}
+    }
+  if (ans[0] == 'y')
+    {
+      newgame = 1;
+    }
+  else
+    {
+      endgame = 1;
+    }
 }
