@@ -6,8 +6,9 @@
 #include <unistd.h>
 #include <conio.h>
 #include <time.h>
+FILE *fp;
 int pai[10];
-int fen=0;
+int fen = 0;
 int endgame = 0;
 int newgame = 0;
 int rank = 5;
@@ -40,6 +41,14 @@ void end ();
 char sr (char v);
 main ()
 {
+
+  fp = fopen ("best", "r+");
+  fseek (fp, 0L, SEEK_SET);
+  fread (pai, sizeof (int), 10, fp);
+  //for (int h=0;h<10;h++)
+  //printf("%d ",pai[h]);
+  //getchar();
+
   welcome ();
   start ();
   show ();
@@ -50,7 +59,7 @@ main ()
     {
       if (newgame == 1)
 	{
-		fen=0;
+	  fen = 0;
 	  endgame = 0;
 	  newgame = 0;
 	  rank = 5;
@@ -397,10 +406,31 @@ void welcome ()
 void end ()
 {
   char ans[10];
+  int jh = 0;
   int flag = 0;
-   fen=(10 - rank) * chang;
+  fen = (10 - rank) * chang;
   puts ("game over");
   printf ("最终分数：%d\n", fen);
+
+  for (int t = 0; t < 10; t++)
+    {
+      if (fen > pai[t])
+	{
+	  jh = pai[t];
+	  pai[t] = fen;
+	  fen = jh;
+	}
+    }
+  puts ("最高分:");
+  for (int h = 0; h < 10; h++)
+    {
+      printf ("第%d名 %6d分", h, pai[h]);
+      if (h == 3 || h == 7)
+	printf ("\n");
+    }
+  printf ("\n");
+
+
   puts ("是否重新开始？(y/n)");
   while (flag == 0)
     {
@@ -422,5 +452,8 @@ void end ()
   else
     {
       endgame = 1;
+      fseek (fp, 0L, SEEK_SET);
+      fwrite (pai, sizeof (int), 10, fp);
+       fclose (fp);
     }
 }
